@@ -80,3 +80,6 @@ Usage:
 		gps.setNewEstimate.sendTransaction('30427500', '60087925', {from:web3.eth.accounts[0], gas:5000000})
 		gps.takeFlight.sendTransaction({from: web3.eth.accounts[0], value: web3.toWei(0.001, "ether"), gas: 5000000})
 ```
+Video:
+
+[![](http://img.youtube.com/vi/fjTpxxdmYBg/0.jpg)](http://www.youtube.com/watch?v=fjTpxxdmYBg "")
