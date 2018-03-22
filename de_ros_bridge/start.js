@@ -9,4 +9,4 @@ if (contact_address == '') {
     return 1;
 }
 /* RUN */
-require('./lib/aira_bridge')(contact_address, rpc_port, bridge_port)
+require('./lib/de_bridge')(contact_address, rpc_port, bridge_port)

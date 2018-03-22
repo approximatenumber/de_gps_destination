@@ -34,18 +34,24 @@ Usage:
 ```sh
 	./qgroundcontrol-start.sh
 ```
-5. Install Parity:
+5. Install Parity or Ganache:
 ```sh
 	wget http://d1h4xl4cr1h0mo.cloudfront.net/v1.8.10/x86_64-unknown-linux-gnu/parity_1.8.10_ubuntu_amd64.deb
+	npm install -g ganache-cli
 ```
 Usage:
 ```sh
 	parity --chain kovan --jsonrpc-cors all
+
+	npm install web3
+	node
+	Web3 = require("web3")
+	web3 = new Web3(new Web3.providers.HttpProvider("http://localhost:8545"));
 ```
 6. Clone DE ROS packages into Catkin workspace (install nosejs npm)
 ```sh
 	git clone https://github.com/tuuzdu/de_gps_destination.git
-	cd aira_rosbridge/
+	cd de_ros_bridge/
 	npm install 
 	sudo apt install ros-kinetic-rosbridge-suite
 	catkin_make (for generating masseges)
@@ -65,18 +71,30 @@ Usage:
 8. Project launch. Prepare:
 ```sh
 	parity --chain kovan --jsonrpc-cors all
-	make posix_sitl_default jmavsim (px4 fw folder; export PX4_HOME_LAT=60.086033 && export PX4_HOME_LON=30.421657)
-	roslaunch dron_ros_tutorial px4_sitl.launch 
-	node start.js 0x82e0E9346b2e259Fd4EB04B134fa65A7A5E95469 (aira_rosbridge folder; GPSDestination address)
+```
+or
+```sh
+	ganache-cli
+```
+
+```sh
+	export PX4_HOME_LAT=60.086033 && export PX4_HOME_LON=30.421657
+	make posix_sitl_default jmavsim
+
+	roslaunch de_ros_tutorial px4_sitl.launch
+
+	node start.js <GPSDestination contract address>
+
 	./qgroundcontrol
 ```
 Init:
 ```sh
-	rostopic pub /dron_employee/homebase dron_ros_tutorial/SatPosition "latitude: 60.086033 longitude: 30.421657"
+	rostopic pub /de_employee/homebase de_ros_tutorial/SatPosition "latitude: 60.086033 longitude: 30.421657"
 ```
 Usage:
 ```sh
 	truffle console
+		gps = GPSDestination.at(GPSDestination.address)
 		gps.setNewEstimate.sendTransaction('30427500', '60087925', {from:web3.eth.accounts[0], gas:5000000})
 		gps.takeFlight.sendTransaction({from: web3.eth.accounts[0], value: web3.toWei(0.001, "ether"), gas: 5000000})
 ```

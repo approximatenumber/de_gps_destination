@@ -7,7 +7,7 @@
 
 from math import atan2, sin, cos, sqrt, pi
 from rospy import init_node, spin, Subscriber, Publisher
-from dron_ros_tutorial.msg import PathCost, PathEstimate
+from de_ros_tutorial.msg import PathCost, PathEstimate
 
 def path_length(lat1, lon1, lat2, lon2):
     # Going to radians

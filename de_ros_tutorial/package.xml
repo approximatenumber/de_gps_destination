@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <package>
-  <name>dron_ros_tutorial</name>
+  <name>de_ros_tutorial</name>
   <version>0.1.0</version>
   <description>Drone interaction through Ethereum tutorial</description>
 
@@ -14,12 +14,6 @@
   <!-- Commonly used license strings: -->
   <!--   BSD, MIT, Boost Software License, GPLv2, GPLv3, LGPLv2.1, LGPLv3 -->
   <license>MIT</license>
-
-
-  <!-- Url tags are optional, but mutiple are allowed, one per tag -->
-  <!-- Optional attribute type can be: website, bugtracker, or repository -->
-  <!-- Example: -->
-  <!-- <url type="website">http://wiki.ros.org/dron_employee_ros</url> -->
 
 
   <!-- Author tags are optional, mutiple are allowed, one per tag -->

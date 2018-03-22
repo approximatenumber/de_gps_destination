@@ -111,18 +111,18 @@ contract GPSDestination is ROSBridge {
     /* ROS integration initial */
     function initROS() returns (bool result) {
         estimatePub = mkPublisher('/path_estimation/path',
-                                  'dron_ros_tutorial/PathEstimate');
-        targetPub = mkPublisher('/dron_employee/target',
-                                'dron_ros_tutorial/SatPosition');
+                                  'de_ros_tutorial/PathEstimate');
+        targetPub = mkPublisher('/de_employee/target',
+                                'de_ros_tutorial/SatPosition');
         
         estimateListener = new EstimateListener(this);
         homebaseListener = new HomebaseListener(this);
         
         mkSubscriber('/path_estimation/cost',
-                     'dron_ros_tutorial/PathCost',
+                     'de_ros_tutorial/PathCost',
                      estimateListener);
-        mkSubscriber('/dron_employee/homebase',
-                     'dron_ros_tutorial/SatPosition',
+        mkSubscriber('/de_employee/homebase',
+                     'de_ros_tutorial/SatPosition',
                      homebaseListener);
         return true;
     }

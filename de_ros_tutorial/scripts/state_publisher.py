@@ -7,18 +7,15 @@ from std_msgs.msg import Bool
 def main():
     init_node('state_publisher')
     # Create publishers
-    armed_pub = Publisher('/dron_employee/armed', Bool, queue_size=1)
-    
-    # TODO: Battery charger monitor thread
-    #ready_pub = Publisher('/dron_employee/battery_full', Bool, queue_size=1)
+    armed_pub = Publisher('/de_employee/armed', Bool, queue_size=1)
 
     # State handler
-    def dron_sate(msg):
+    def drone_sate(msg):
         armed = Bool()
         armed.data = msg.armed
         armed_pub.publish(armed)
     
-    Subscriber('/mavros/state', State, dron_sate)
+    Subscriber('/mavros/state', State, drone_sate)
     spin()
 
 if __name__ == '__main__':

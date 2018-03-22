@@ -1,5 +1,5 @@
 {
-  "name": "aira_ros_bridge",
+  "name": "de_ros_bridge",
   "version": "0.1.0",
   "description": "Ehtereum to ROS bridge solution.",
   "main": "./index.js",

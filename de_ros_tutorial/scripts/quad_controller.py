@@ -4,7 +4,7 @@ from mission_planner import mission_planner
 from quad_commander import *
 
 from rospy import init_node, spin, sleep, Subscriber, Publisher
-from dron_ros_tutorial.msg import SatPosition
+from de_ros_tutorial.msg import SatPosition
 from sensor_msgs.msg import NavSatFix
 from std_msgs.msg import Bool
 from threading import Thread
@@ -50,13 +50,13 @@ def quad_controller(target_queue, position_queue, arming_queue, homebase_pub):
 
 def main():
     ''' The main routine '''
-    init_node('dron_employee_ros')
+    init_node('de_employee_ros')
     # Create queues
     target_queue = Queue()
     position_queue = Queue()
     arming_queue = Queue()
     # Create homebase publisher
-    homebase_pub = Publisher('/dron_employee/homebase', SatPosition, queue_size=1)
+    homebase_pub = Publisher('/de_employee/homebase', SatPosition, queue_size=1)
     # Create controller thread
     controller = Thread(target=quad_controller,
                         args=(target_queue, position_queue, arming_queue, homebase_pub))
@@ -70,8 +70,8 @@ def main():
             print('Target already exist!')
     
     Subscriber('/mavros/global_position/global', NavSatFix, position_queue.put) 
-    Subscriber('/dron_employee/armed', Bool, arming_queue.put)
-    Subscriber('/dron_employee/target', SatPosition, quad_target)
+    Subscriber('/de_employee/armed', Bool, arming_queue.put)
+    Subscriber('/de_employee/target', SatPosition, quad_target)
     spin()
             
 if __name__ == '__main__':

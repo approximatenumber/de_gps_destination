@@ -1,7 +1,7 @@
 // Init libs
 var ROSLIB = require('roslib');
 var Helpers = require('../helpers');
-var SatPosition = require('../dron_ros_tutorial/SatPosition');
+var SatPosition = require('../de_ros_tutorial/SatPosition');
 // Solidity message definition
 var bytecode = '0x606060405260405160608060e083395060c06040525160805160a051600080546201000084026201000060b060020a031961ffff1990921686179190911617905560018054600160a060020a03191682179055505050607f8060616000396000f3606060405260e060020a60003504635001f3b58114602e57806390797634146045578063b269681d146051575b005b6062600054620100009004600160a060020a031681565b607560005461ffff1681565b6062600154600160a060020a031681565b600160a060020a03166060908152602090f35b6060908152602090f3';
 var abi = [{"constant":true,"inputs":[],"name":"base","outputs":[{"name":"","type":"address"}],"type":"function"},{"constant":true,"inputs":[],"name":"ident","outputs":[{"name":"","type":"uint16"}],"type":"function"},{"constant":true,"inputs":[],"name":"destination","outputs":[{"name":"","type":"address"}],"type":"function"},{"inputs":[{"name":"_ident","type":"uint16"},{"name":"_base","type":"address"},{"name":"_destination","type":"address"}],"type":"constructor"}];
